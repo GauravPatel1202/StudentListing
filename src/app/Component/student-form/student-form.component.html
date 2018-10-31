@@ -5,44 +5,46 @@
                 <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                     <div class="form-group">
                         <label for="firstName">First Name</label>
-                        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+                        <input type="text" class="form-control" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required  pattern="[A-Za-z]{0,20}" />
                         <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
                             <div *ngIf="firstName.errors.required">First Name is required</div>
+                            <div *ngIf="firstName.errors.pattern">First Name is a-zA-Z max 20 character</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastName">Last Name</label>
-                        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+                        <input type="text" class="form-control" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required pattern="[A-Za-z]{0,20}"/>
                         <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
                             <div *ngIf="lastName.errors.required">Last Name is required</div>
+                            <div *ngIf="lastName.errors.pattern">Last Name is a-zA-Z max 20 character</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Class</label>
-                        <input type="text" class="form-control" name="class" [(ngModel)]="model.class" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && class.invalid }" required number />
+                        <label for="Class">Class</label>
+                        <input type="text" class="form-control" name="class" [(ngModel)]="model.class" #class="ngModel" [ngClass]="{ 'is-invalid': f.submitted && class.invalid }" required pattern="^[a-zA-Z0-9]*" />
                         <div *ngIf="f.submitted && class.invalid" class="invalid-feedback">
                             <div *ngIf="class.errors.required">Class is required</div>
-                            <div *ngIf="class.errors.number">must be a valid number</div>
+                            <div *ngIf="class.errors.pattern">must be a valid Class</div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="passing">Year of Passing</label>
-                        <input type="text" class="form-control" name="passing" [(ngModel)]="model.passing" #passing="ngModel" [ngClass]="{ 'is-invalid': f.submitted && passing.invalid }" required minlength="6" />
+                        <input type="text" class="form-control" name="passing" [(ngModel)]="model.passing" #passing="ngModel" [ngClass]="{ 'is-invalid': f.submitted && passing.invalid }" required  pattern="^(1989|199[0-9]|200[0-9]|201[0-7])" />
                         <div *ngIf="f.submitted && passing.invalid" class="invalid-feedback">
                             <div *ngIf="passing.errors.required">Passing is required</div>
-                            <div *ngIf="passing.errors.minlength">Passing must be at least 4 </div>
+                            <div *ngIf="passing.errors.pattern">Passing Year must be at least 4 </div>
                         </div>
                     </div>
                      <div class="form-group">
                         <label for="password">Percentage</label>
-                        <input type="password" class="form-control" name="percentage" [(ngModel)]="model.percentage" #percentage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                        <input type="text" class="form-control" name="percentage" [(ngModel)]="model.percentage" #percentage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && percentage.invalid }" required pattern="^([0-9]|[1-8][0-9]|9[0-9]|100)" />
                         <div *ngIf="f.submitted && percentage.invalid" class="invalid-feedback">
                             <div *ngIf="percentage.errors.required">Percentage is required</div>
-                            <div *ngIf="percentage.errors.minlength">Percentage must be at least 6 characters</div>
+                            <div *ngIf="percentage.errors.pattern">Percentage must be at max 3 digits</div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary">submission</button>
+                        <button class="btn btn-primary"  [disabled]="!f.form.valid&&f.submitted">submission</button>
                     </div>
                 </form>
             </div>
