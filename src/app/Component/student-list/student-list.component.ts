@@ -10,6 +10,7 @@ import { CommSeriveService } from '../../Service/comm-serive.service';
 export class StudentListComponent implements OnInit {
  
  TopperMark:any;
+ table:any;
  
   constructor(private CommSeriveService : CommSeriveService) { }
   
