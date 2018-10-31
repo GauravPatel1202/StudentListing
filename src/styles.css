@@ -3,3 +3,10 @@ body{
 	padding: 0px;
 	margin:0px;
 }
+control-label.required:after { 
+    color: #d00;
+    content: "*";
+    position: absolute;
+    margin-left: 5px;
+    top:7px;
+}
