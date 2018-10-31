@@ -1,0 +1,30 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    padding: 10px
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: bold;
+    font-style: italic;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.Pass{
+color: black;
+}
+.Fail{
+color: red;
+}
+.Topper{
+color: green;
+}
+.name{
+	text-transform: capitalize;
+}

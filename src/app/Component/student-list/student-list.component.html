@@ -1,1 +1,21 @@
-<p>rr</p>
+<div class="container">
+<table>
+  <thead>
+  	<td>Students​ ​Result​ ​Board</td>
+  </thead>
+</table>
+<table>
+  <tr>
+    <th>Student​ ​Name</th>
+    <th>Roll​ ​Number</th>
+    <th>Total​ ​Marks</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let data of table"  [ngClass]="{'Topper': TopperMark==data.totelMarks&&data.Status!='Fail', 'Fail': TopperMark!=data.totelMarks&&data.Status=='Fail', 'Pass': TopperMark!=data.totelMarks&&data.Status=='Pass'}" >
+    <td class="name">{{data.name}}</td>
+    <td>{{data.rollNumber}}</td>
+    <td>{{data.totelMarks}}</td>
+    <td>{{TopperMark!=data.totelMarks?data.Status:"Topper"}}</td>
+  </tr>
+</table>
+</div>
