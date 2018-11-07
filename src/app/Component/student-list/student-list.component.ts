@@ -13,7 +13,7 @@ export class StudentListComponent implements OnInit {
  table:any;
  
   constructor(private CommSeriveService : CommSeriveService) { }
-  
+  stringArr = [];
   ngOnInit() {
   
    this.CommSeriveService.getJSON().subscribe(data => {
